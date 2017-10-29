@@ -12,25 +12,43 @@
 
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="style.css">
 
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
 <script type="text/javascript" src="examples/lib/TrackballControls.js"></script>
 
-<script src="//js.leapmotion.com/leap-0.6.4.js"></script>
+<script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
 <!-- This gives us the hand-hold and hand-entry plugins, which rigged-hand depends on -->
-<script src="//js.leapmotion.com/leap-plugins-0.1.10.js"></script>
+<script src="https://js.leapmotion.com/leap-plugins-0.1.10.js"></script>
 <script type="text/javascript" src="build/leap.rigged-hand-0.1.7.js"></script>
 
 <script type="text/javascript" src="examples/lib/Stats.js"></script>
 <script type="text/javascript" src="examples/advanced.js"></script>
+<script src="index.js"></script>
+
+<div>
+  <section class="piano" id="piano">
+    <button type="button" tabindex="-1" class="key-1" title="B"></button>
+    <button type="button" tabindex="-1" class="key-2" title="C"></button>
+    <button type="button" tabindex="-1" class="key-3" title="C#/Db"></button>
+    <button type="button" tabindex="-1" class="key-4" title="D"></button>
+    <button type="button" tabindex="-1" class="key-5" title="D#/Eb"></button>
+    <button type="button" tabindex="-1" class="key-6" title="E"></button>
+    <button type="button" tabindex="-1" class="key-7" title="F"></button>
+    <button type="button" tabindex="-1" class="key-8" title="F#/Gb"></button>
+    <button type="button" tabindex="-1" class="key-9" title="G"></button>
+    <button type="button" tabindex="-1" class="key-10" title="G#/Ab"></button>
+    <button type="button" tabindex="-1" class="key-11" title="A"></button>
+    <button type="button" tabindex="-1" class="key-12" title="A#/Bb"></button>
+  </section>
+</div>
 
 <!-- tracking only on github.io -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-31536531-11', 'leapmotion.github.io');
   ga('send', 'pageview');

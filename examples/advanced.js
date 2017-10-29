@@ -1,11 +1,11 @@
 (function() {
   // http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-function getParam(name) {
+  function getParam(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
+      results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-};
+  };
   var controller, cursor, initScene, riggedHand, stats;
 
   window.scene = null;
@@ -46,7 +46,14 @@ function getParam(name) {
   };
 
   // via Detector.js:
-var webglAvailable  = ( function () { try { var canvas = document.createElement( 'canvas' ); return !! window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ); } catch( e ) { return false; } } )();
+  var webglAvailable = (function() {
+    try {
+      var canvas = document.createElement('canvas');
+      return !!window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+    } catch (e) {
+      return false;
+    }
+  })();
 
   if (webglAvailable) {
     initScene(document.body);
@@ -117,6 +124,15 @@ var webglAvailable  = ( function () { try { var canvas = document.createElement(
       if (hand = frame.hands[0]) {
         handMesh = frame.hands[0].data('riggedHand.mesh');
         screenPosition = handMesh.screenPosition(hand.fingers[1].tipPosition, camera);
+
+        /* checking bounds */
+        for (var i = 1; i < 13; i++) {
+          var myElement = document.getElementById('key-' + i);
+          var rect = myElement.getBoundingClientRect().top + window.scrollY;
+          console.log(rect.top, rect.right, rect.bottom, rect.left);
+        }
+
+
         cursor.style.left = screenPosition.x;
         return cursor.style.bottom = screenPosition.y;
       }
